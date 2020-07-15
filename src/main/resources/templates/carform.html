@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body bgcolor="33FFB9">
+<h2>Car Inventory</h2>
+<form action="#"
+      th:action="@{/carform}"
+      method="post"
+      th:object="${car}">
+    Id: <input type="number" th:field="*{id}"/>
+    <br/>
+    <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span></br>
+
+    Make:<input type="text" th:field="*{make}"/>
+    <br>
+    <span th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></span><br/>
+
+    Model :<input type="text" th:field="*{model}"/>
+    <br>
+    <span th:if="${#fields.hasErrors('model')}"
+          th:errors="*{model}"></span><br/>
+
+    Description :<textarea rows="3" th:field="*{description}"></textarea>
+    <br>
+    <span th:if="${#fields.hasErrors('description')}"
+          th:errors="*{description}"></span><br/>
+
+    <input type="submit" value="Submit"/>
+
+</form>
+
+</body>
+</html>
